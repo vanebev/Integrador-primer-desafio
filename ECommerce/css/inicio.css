@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600&display=swap');
+
+
+
+body{
+  background-color:#689 ;
+  font-family: 'Source Sans 3', sans-serif; line-height: 1.65; 
+  color: #f7f7f7; 
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+h1 { 
+  letter-spacing: 2px;
+  font-size: clamp(2.5rem, 2.5vw, 2.2rem); 
+}
+h2, h3 {
+   letter-spacing: 1px;
+   font-size: clamp(1.3rem, 2vw, 1.6rem); 
+}
+main {
+    height: auto;
+    background-color:#689;
+    text-align: center;
+    padding: 25px;
+}
+
+section img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+main .section-cards-body {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;      /* centra también la última fila */
+  gap: 22px 18px; 
+  
+}
+
+
+main .section-cards-body > section{
+  flex: 0 0 260px;              /* probá 240–280px si querés más/menos ancho */
+  margin: 20px !important;         /* anula el margin:15px del section global */
+  box-sizing: border-box;
+  width: auto;
+  padding: 14px 14px 16px;
+  border-radius: 16px;
+  color: #fff7ef;
+  background: radial-gradient(120% 100% at 12% 0%, #a14242 0%, #7d2f2f 70%);
+  box-shadow: 2px 2px 5px 5px rgb(163, 60, 64);
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 10px;
+  transition: transform .15s ease, box-shadow .25s ease, filter .2s ease;
+}
+
+
+main .section-cards-body > section:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.22);
+  filter: brightness(1.03);
+}
+
+main .section-cards-body > section img{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  max-height: 180px;
+  margin: 0 0 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(0,0,0,.06));
+  border-radius: 12px;
+  box-shadow: 2px 2px 1px 1px rgb(41, 2, 35);
+}
+
+/* Movimiento SOLO al pasar el cursor por la imagen */
+main .section-cards-body > section img {
+  transition: transform .35s ease, filter .35s ease;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+main .section-cards-body > section img:hover {
+  transform: scale(1.06) translateY(-2px);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+main .section-cards-body > section p{
+     margin:0 0 6px; font-size:14px; line-height:1.35; 
+}
+
+main .section-cards-body > section p b{ 
+    color:#ffd166; font-weight:800; 
+}
+
+main .section-cards-body > section p:nth-of-type(5){
+  overflow:hidden; line-height:var(--lh);
+  max-height:calc(var(--lh) * 1em * var(--lines));
+  position:relative;
+}
+
+section {
+    width: 250px;
+    padding: 15px;
+    background-color:#943;
+    color: white;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+section h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.section-cards-header h1 {
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+.boton-comprar {
+  justify-self: center;
+  margin-top: 6px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s ease, box-shadow .2s ease, filter .18s ease;
+}
+
+.boton-comprar:hover {
+    background-color: #218838;
+}

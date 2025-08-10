@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECommerce (alta)</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/alta.css">
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li> <a href="./index.html">Inicio</a> </li>
+                <li> <a href="./alta.html">Alta</a> </li>
+                <li> <a href="./carrito.html">Carrito</a> </li>
+                <li> <a href="./contacto.html">Contacto</a> </li>
+                <li> <a href="./nosotros.html">Nosotros</a> </li>
+                <li> <a href="./otra.html">Otra</a> </li>
+            </ul>
+        </nav>
+        <div>
+            <div id="logo"><img src="../img/images.jpeg" ></div>
+            <div id="barra-busqueda">
+                <form action="#">
+                    <label for="buscar">Buscar</label>
+                    <input type="text">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+            <div id="boton-carrito"><img src="../img/carrito.png" ></div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Alta de productos</h1>
+
+        <form onsubmit="agregar(event)" class="alta-form">
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" name="nombre">
+            </div>
+
+            <div class="input-group">
+                <label for="precio">Precio</label>
+                <input id="precio" type="number" name="precio">
+            </div>
+
+            <div class="input-group">
+                <label for="stock">Stock</label>
+                <input id="stock" type="number" name="stock">
+            </div>
+
+            <div class="input-group">
+                <label for="marca">Marca</label>
+                <input id="marca" type="text" name="marca">
+            </div>
+
+            <div class="input-group">
+                <label for="categoria">Categoría</label>
+                <input id="categoria" type="text" name="categoria">
+            </div>
+
+            <div class="input-group">
+                <label for="detalles">Detalles</label>
+                <input id="detalles" type="text" name="detalles">
+            </div>
+
+            <div class="input-group">
+                <label for="descripcionCorta">Descripción corta</label>
+                <input id="descripcionCorta" type="text" name="descripcionCorta">
+            </div>
+
+            <div class="input-group">
+                <label for="descripcionLarga">Descripción larga</label>
+                <textarea id="descripcionLarga" name="descripcionLarga" rows="4"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="edadDesde">Edad desde</label>
+                <input id="edadDesde" type="number" name="edadDesde" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="edadHasta">Edad hasta</label>
+                <input id="edadHasta" type="number" name="edadHasta" min="0">
+            </div>
+
+            <div class="input-group checkbox">
+                <input id="envio" type="checkbox" name="envio">
+                <label for="envio">Envío sin cargo</label>
+            </div>
+
+            <div class="input-group">
+                <label for="foto">Foto (URL)</label>
+                <input id="foto" type="text" name="foto">
+            </div>
+
+            <button type="submit">Agregar</button>
+        </form>
+
+        <hr>
+
+        <h2>Lista de productos disponibles</h2>
+        <table></table>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-col">
+            <h4>ECommerce</h4>
+            <p>© 2025 — Todos los derechos reservados</p>
+        </div>
+        <div class="footer-col">
+        <ul>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./contacto.html">Contacto</a></li>
+        <li><a href="./alta.html">Alta de productos</a></li>
+        </ul>
+        </div>
+        <div class="footer-col">
+            <p><strong>Dirección:</strong> Av. Siempre Viva 123, CABA</p>
+            <p><strong>CUIT:</strong> 30-12345678-9</p>
+        </div>
+    </footer>
+
+    <script src="js/productos.js"></script>
+    <script src="js/alta.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
