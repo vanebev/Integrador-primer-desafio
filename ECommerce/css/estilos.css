@@ -30,6 +30,8 @@ header nav {
    
 }
 
+
+
 header nav ul { 
    list-style: none;
    padding: 0;
@@ -41,6 +43,7 @@ header nav ul {
    
 }
 
+
 header nav ul li {
    
   width: 100%;
@@ -50,8 +53,6 @@ header nav ul li {
 header nav ul li a {
   text-decoration: none;
   width: 115px;
-  height: 54px;
-  display: block;
   background-color: #4d0d4d;
   color: white;
   margin: auto;
@@ -63,24 +64,20 @@ header nav ul li a {
   text-decoration:none;
   color:#f5f1ff;
   font-weight:700;
-  letter-spacing:.2px;
-  transition: transform .08s ease, box-shadow .2s ease, filter .18s ease;
+  letter-spacing:.2px; 
 }
 
-header nav ul li a:hover,
-header nav ul li a:focus-visible{
-  transform: translateY(-1px);
-  filter: brightness(1.05);
+
+header nav ul li a:hover {
+  background-color: #4d0d4d; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transform: translateY(-2px) scale(1.03);
+  color: #fff; 
 }
 
-header nav ul li a::after{          
-  content:"";
-  position:absolute; left:50%; transform:translateX(-50%);
-  bottom:-6px; width: 40%; height: 3px; border-radius: 3px;
-  background: rgba(255,255,255,.35);
-  opacity:0; transition: opacity .2s ease;
-}
-header nav ul li a:hover::after{ opacity:1; }
+
+
+
 
 
 header > div {
@@ -109,7 +106,7 @@ header > div {
 
 #logo img{
   transition: transform 2s ease-in-out 0.1s; 
-  max-height: 9vh;
+  height: 54px;
   max-width: 100%;
 }
 
@@ -130,11 +127,12 @@ header > div {
 }
 
 #boton-carrito {
+  background-color: #318888;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 54px;
-  width: 54px;
+  width: 7.2%;
   background: none; 
   cursor: pointer;
   transition: transform 0.4s ease;
@@ -145,8 +143,8 @@ header > div {
 }
 
 #boton-carrito img {
-  width: 50px;  
-  height: 50px;
+  width: 100%;  
+  height:54px;
 }
 
 #barra-busqueda form {
@@ -164,6 +162,21 @@ header > div {
   padding: 0 10px 0 14px;
 }
 
+@keyframes labelGlow {
+  0% {
+    color: #7a6d63;
+    text-shadow: none;
+  }
+  50% {
+    color: #4da6ff;
+    text-shadow: 0 0 8px rgba(77,166,255,0.7);
+  }
+  100% {
+    color: #7a6d63;
+    text-shadow: none;
+  }
+}
+
 #barra-busqueda form label {
   background-color: #ADFF2F;
   line-height: 22px;
@@ -175,7 +188,7 @@ header > div {
   color:#7a6d63;
   font-weight:700;
   line-height:1;
-  
+  animation: labelGlow 2.5s ease-in-out infinite;
 }
 
 #barra-busqueda form input {
@@ -189,6 +202,23 @@ header > div {
   color:#333;
   font-size: 2.5vh;
 }
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(110, 231, 183, 0.7);
+    filter: brightness(1.1);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    filter: brightness(1);
+  }
+}
 
 #barra-busqueda form input[type="submit"] {
   padding: 8px 14px;
@@ -199,13 +229,18 @@ header > div {
   color:#073b28;
   font-weight:800;
   cursor:pointer;
-  transition: transform 08s ease, box-shadow 2s ease, filter 2s ease;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
+
+#barra-busqueda form input[type="submit"]:hover {
+  transform: scale(1.15); 
+}
+
 #barra-busqueda form input[type="submit"]:hover{
   transform: translateY(-1px);
   filter: brightness(1.02);
 }
-
 
 footer {
   font-size: 20px;
@@ -215,6 +250,28 @@ footer {
   line-height:1.2;
 }
 
+@keyframes zoomColor {
+  0% {
+    transform: scale(o.5);
+    color: #4da6ff;
+  }
+  50% {
+    transform: scale(1.1);
+    color: #ff6600;
+  }
+  100% {
+    transform: scale(1);
+    color: #4da6ff;
+  }
+}
+footer p, footer h4 {
+  font-size: 20px;
+  font-family: 'Lobster', cursive;
+  animation: zoomColor 10s ease-in-out infinite;
+}
+
+
+
 .centrar {
     text-align: center;
 }
@@ -222,18 +279,25 @@ footer {
   margin-top: auto; 
   background: #111;
   color: #eee;
-  padding: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
   gap: 16px;
-  text-align: left
+  text-align: center
 
 }
+
 
 .site-footer a { 
   color: #eee; 
-  text-decoration: none; 
+  text-decoration: none;
+  animation: zoomColor 3s ease-in-out infinite;
+  display: inline-block; 
 }
+
+.footer-col ul li:nth-child(1) a { animation-delay: 0.8s; }
+.footer-col ul li:nth-child(2) a { animation-delay: 2s; }
+.site-footer .footer-col ul li:nth-child(3) a { animation-delay: 4s; }
+
 .site-footer a:hover, .site-footer a:focus-visible { 
   text-decoration: underline; 
 }
