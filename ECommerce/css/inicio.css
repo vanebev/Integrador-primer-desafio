@@ -4,7 +4,8 @@
 
 body{
   background-color:#689 ;
-  font-family: 'Source Sans 3', sans-serif; line-height: 1.65; 
+  font-family: 'Source Sans 3', sans-serif; 
+  line-height: 1.65; 
   color: #f7f7f7; 
 }
 
@@ -29,33 +30,31 @@ main {
 }
 
 section img {
-    width: 100px;
-    margin-bottom: 15px;
+  width: 100px;
+  margin-bottom: 15px;
 }
 
 main .section-cards-body {
   display: flex !important;
   flex-wrap: wrap;
-  justify-content: center;      /* centra también la última fila */
+  justify-content: center;    
   gap: 22px 18px; 
   
 }
 
 
 main .section-cards-body > section{
-  flex: 0 0 260px;              /* probá 240–280px si querés más/menos ancho */
-  margin: 20px !important;         /* anula el margin:15px del section global */
+  flex: 0 0 260px;              
+  margin: 20px !important;        
   box-sizing: border-box;
-  width: auto;
   padding: 14px 14px 16px;
-  border-radius: 16px;
   color: #fff7ef;
   background: radial-gradient(120% 100% at 12% 0%, #a14242 0%, #7d2f2f 70%);
   box-shadow: 2px 2px 5px 5px rgb(163, 60, 64);
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 10px;
-  transition: transform .15s ease, box-shadow .25s ease, filter .2s ease;
+  transition: transform 15s ease, box-shadow 25s ease, filter 2s ease;
 }
 
 
@@ -76,7 +75,6 @@ main .section-cards-body > section img{
   box-shadow: 2px 2px 1px 1px rgb(41, 2, 35);
 }
 
-/* Movimiento SOLO al pasar el cursor por la imagen */
 main .section-cards-body > section img {
   transition: transform .35s ease, filter .35s ease;
   transform-origin: center;
@@ -102,23 +100,23 @@ main .section-cards-body > section p:nth-of-type(5){
 }
 
 section {
-    width: 250px;
-    padding: 15px;
-    background-color:#943;
-    color: white;
-    margin: 15px;
-    border-radius: 15px;
+  width: 250px;
+  padding: 15px;
+  background-color:#943;
+  color: white;
+  margin: 15px;
+  border-radius: 15px;
 }
 
 section h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-decoration: underline;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
 
 .section-cards-header h1 {
-    color: #fff;
-    margin-bottom: 40px;
+  color: #fff;
+  margin-bottom: 40px;
 }
 
 section p {
@@ -140,5 +138,5 @@ section p {
 }
 
 .boton-comprar:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
