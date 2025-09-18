@@ -6,6 +6,6 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function start() {
+function startContacto() {
     console.warn('startContacto')
 }

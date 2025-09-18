@@ -6,6 +6,6 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function start() {
+function startOtra() {
     console.warn('startOtra')
 }

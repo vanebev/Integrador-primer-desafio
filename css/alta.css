@@ -1,15 +1,15 @@
-main {
+.alta {
     height: auto;
     padding: 20px;
     background-color: #ddd;
 }
 
-main h1 {
+.alta h1 {
     text-align: center;
 }
 
 
-.alta-form {
+ .alta .alta-form {
     background-color: #b63625;
     width: 80%;
     margin: 20px auto;
@@ -31,7 +31,7 @@ main h1 {
     text-align: center;
 }
 
-main label {
+.alta label {
     color: #badc58;
     text-transform: capitalize;
     display: block;
@@ -39,12 +39,12 @@ main label {
    
 }
 
-main label[for="envio"] {
+.alta label[for="envio"] {
     display: inline-block;
     margin: 10px 0;
 }
 
-main button {
+.alta button {
  
     display: block;
     margin: 15px auto;
@@ -57,7 +57,7 @@ main button {
     border-radius: 5px;
 }
 
-main input {
+.alta input {
     width: 70%;
     height: 30px;
     font-size: 20px;
@@ -65,26 +65,26 @@ main input {
     background-color:#95afc0;
 }
 
-main input[type="checkbox"] {
+.alta input[type="checkbox"] {
     width: 20px;
     height: 20px;
 }
 
 
-th,td {
+.alta th,td {
     border: 1px solid black;
     width: 100px;
     height: 40px;
     padding: 10px;
 }
 
-table {
+.alta table {
     border-collapse: collapse;
     margin: 5px auto;
   
 }
 
-th {
+.alta th {
     text-transform: uppercase;
     background-color: #111;
     color: white;
@@ -95,18 +95,18 @@ th {
     padding: 10px;
 }
 
-td {
+.alta td {
     font-size: 18px;
 }
 
-main h2 {
+.alta h2 {
     text-align: center;
     grid-column:2;
     grid-row:1;
     align-self:end;
 }
 
-table {
+.alta table {
     border-collapse: collapse;
     margin: 5px auto;
     grid-column:2;

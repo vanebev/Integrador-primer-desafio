@@ -6,6 +6,6 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function start() {
+function startCarrito() {
     console.warn('startCarrito')
 }

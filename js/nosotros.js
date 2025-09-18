@@ -6,6 +6,6 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function start() {
+function startNosotros() {
     console.warn('StartNosotros')
 }

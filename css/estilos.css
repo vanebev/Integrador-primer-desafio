@@ -9,9 +9,9 @@ body{
 
 main { 
   flex: 1;
-  height: 550px;
+  height: auto ;
   padding: 24px 18px;
-  min-height: 60vh;    
+  min-height: 80vh;    
    
 }
 

@@ -33,8 +33,8 @@ function representarCardsProductos() {
 
 
 
-function start() {
-    console.warn(startInicio)
+function startInicio() {
+    console.warn('startInicio')
 
     representarCardsProductos()
 }

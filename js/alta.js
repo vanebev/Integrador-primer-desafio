@@ -120,7 +120,7 @@ function representarTablaProductos() {
 }
 
 
-function start() {
+function startAlta() {
     console.warn('startAlta')
 
     representarTablaProductos()
