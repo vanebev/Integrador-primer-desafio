@@ -34,7 +34,7 @@ function representarCardsProductos() {
 
 
 function start() {
-    console.warn(document.querySelector('title').textContent)
+    console.warn(startInicio)
 
     representarCardsProductos()
 }

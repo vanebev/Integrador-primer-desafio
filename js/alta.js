@@ -121,7 +121,7 @@ function representarTablaProductos() {
 
 
 function start() {
-    console.warn(document.querySelector('title').textContent)
+    console.warn('startAlta')
 
     representarTablaProductos()
 }

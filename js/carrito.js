@@ -7,5 +7,5 @@
 //         funciones globales
 // -------------------------------------
 function start() {
-    console.warn(document.querySelector('title').textContent)
+    console.warn('startCarrito')
 }
