@@ -9,16 +9,16 @@ body{
   color: #f7f7f7; 
 }
 
-h1, h2, h3 {
+.inicio h1, h2, h3 {
   font-family: 'Fraunces', serif;
   font-weight: 700;
   line-height: 1.15;
 }
-h1 { 
+.inicio h1 { 
   letter-spacing: 2px;
   font-size: clamp(2.5rem, 2.5vw, 2.2rem); 
 }
-h2, h3 {
+.inicio h2, h3 {
    letter-spacing: 1px;
    font-size: clamp(1.3rem, 2vw, 1.6rem); 
 }
@@ -29,7 +29,7 @@ h2, h3 {
     padding: 25px;
 }
 
-section img {
+.inicio section img {
   width: 100px;
   margin-bottom: 15px;
 }
@@ -114,16 +114,16 @@ section h3 {
   text-decoration: underline;
 }
 
-.section-cards-header h1 {
+.inicio .section-cards-header h1 {
   color: #fff;
   margin-bottom: 40px;
 }
 
-section p {
+.inicio section p {
     margin-bottom: 10px;
 }
 
-.boton-comprar {
+.inicio .boton-comprar {
   justify-self: center;
   margin-top: 6px;
   padding: 10px 16px;
@@ -137,6 +137,6 @@ section p {
   transition: transform .12s ease, box-shadow .2s ease, filter .18s ease;
 }
 
-.boton-comprar:hover {
+.inicio .boton-comprar:hover {
   background-color: #218838;
 }
