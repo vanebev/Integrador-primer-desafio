@@ -1,3 +1,15 @@
+/* ......................................... */
+/*          Importacion                      */
+/* .......................................... */
+import inicio from "./inicio.js"
+import alta from "./alta.js"
+import carrito from "./carrito.js"
+import contacto from "./contacto.js"
+import nosotros from "./nosotros.js"
+import otra from "./otra.js"
+
+
+
 // -------------------------------------
 //         variables globales
 // -------------------------------------
@@ -15,12 +27,12 @@ function cargarPlantilla(id){
     
     //const startFn = [startInicio, startAlta, startCarrito, startContacto, startNosotros, startOtra]
     const startFn = {
-        'inicio'  : startInicio, 
-        'alta'    : startAlta, 
-        'carrito' : startCarrito, 
-        'contacto': startContacto, 
-        'nosotros': startNosotros, 
-        'otra'    : startOtra
+        'inicio'  : inicio.startInicio, 
+        'alta'    : alta.startAlta, 
+        'carrito' : carrito.startCarrito, 
+        'contacto': contacto.startContacto, 
+        'nosotros': nosotros.startNosotros, 
+        'otra'    : otra.startOtra
     }
 
     const xhr = new XMLHttpRequest()
@@ -28,50 +40,12 @@ function cargarPlantilla(id){
     xhr.addEventListener('load',()=>{
         if(xhr.status ==200){
             const plantilla = xhr.response 
-            //console.log(plantilla)
+    
             
             //cargo la plantilla html seleccionada en el main
             main.innerHTML = plantilla
             //ejecuto las funciones del script correspondiente a esa plantilla cargada
-           /*  
-           if(id == 'inicio') startInicio()
-           else if (id == 'alta') startAlta()
-           else if (id == 'carrito') startCarrito()
-           else if (id == 'contacto') startContacto()
-           else if (id == 'nosotros') startNosotros()
-           else if (id == 'otra') startOtra() */
-           
-           /* switch(id){
-            case 'inicio' : startInicio(); break
-            case 'alta' : startAlta(); break
-            case 'carrito' : startCarrito(); break
-            case 'contacto' : startContacto(); break
-            case 'nosotros' : startNosotros(); break
-            case 'otra' : startOtra(); break
-            default : break
-           } */
-
-          /*  switch(id){
-            case 'inicio' :   startFn [0] (); break
-            case 'alta' :     startFn [1](); break
-            case 'carrito' :  startFn [2](); break
-            case 'contacto' : startFn [3](); break
-            case 'nosotros' : startFn [4](); break
-            case 'otra' :     startFn [5](); break
-            default : break
-           } */
-
-          /*   switch(id){
-            case 'inicio' :   startFn.inicio (); break
-            case 'alta' :     startFn.alta (); break
-            case 'carrito' :  startFn.carrito (); break
-            case 'contacto' : startFn.contacto (); break
-            case 'nosotros' : startFn.nosotros (); break
-            case 'otra' :     startFn.otra (); break
-            default : break
-
-            
-        } */
+          
 
             startFn[id]()
     }
@@ -87,7 +61,6 @@ function cargarPlantillas (){
 
     //carga de la vista inicial de navegacion (dinamica)
     const links = document.querySelectorAll('header nav a')
-    //console.log(links)
 
     links.forEach ( link => {
        // console.log(link)
@@ -95,7 +68,6 @@ function cargarPlantillas (){
         link.addEventListener('click',e=>{
             e.preventDefault()
 
-           // console.log('Click en link', link.id)
             
              const id = link.id   
              // cargarPlantilla(id)
@@ -109,7 +81,7 @@ function cargarPlantillas (){
     })
     
     window.addEventListener('hashchange', ()=>{
-        console.log('Cambio el hash (#) en la url')
+        //console.log('Cambio el hash (#) en la url')
     
         const id = location.hash.slice(1)
         cargarPlantilla(id)
@@ -128,3 +100,10 @@ function start(){
 //          punto de entrada
 // -------------------------------------
 window.onload = start
+
+
+/* ......................................... */
+/*          Exportacion                      */
+/* .......................................... */
+
+

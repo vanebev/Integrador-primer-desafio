@@ -1,3 +1,9 @@
+/* ......................................... */
+/*          Importacion                      */
+/* .......................................... */
+import servicioProductos from "./servicioProductos.js"
+import productosMem from "./productosMem.js"
+
 // -------------------------------------
 //         variables globales
 // -------------------------------------
@@ -55,10 +61,10 @@
     console.log(producto)
     
     //guardamos el producto en el recurso remoto
-    const productoGuardado = await guardar(producto)
+    const productoGuardado = await servicioProductos.guardar(producto)
     console.log (productoGuardado)
     //guardamos el producto en el recurso local
-    productos.push(producto)
+    productosMem.guardar(producto)
 
     representarTablaProductos()
 
@@ -79,6 +85,8 @@
 
 function representarTablaProductos() {
     let filasTabla = ''
+
+    const productos = productosMem.getAll()
 
     if(productos.length) {
         filasTabla += `
@@ -124,12 +132,28 @@ function representarTablaProductos() {
     document.querySelector('table').innerHTML = filasTabla
 }
 
+function setListeners(){
+    document.querySelector('.alta .alta-form').addEventListener('submit',agregar)
+}
+
 
 async function startAlta() {
     console.warn('startAlta')
 
-    productos = await getAll()
-    console.log (productos)
+     // obtengo los productos del recurso remoto
+       const productos = await servicioProductos.getAll()
+       console.log(productos)
+       // Guardo los productos obtenidos en un recurso local
+       productosMem.setAll(productos)
 
     representarTablaProductos()
+    setListeners()
+}
+
+/* ......................................... */
+/*          Exportacion                      */
+/* .......................................... */
+
+export default {
+    startAlta
 }

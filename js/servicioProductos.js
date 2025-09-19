@@ -1,7 +1,12 @@
+/* ......................................... */
+/*          Importacion                      */
+/* .......................................... */
+
+
 const url = 'https://68c49c4981ff90c8e61ca717.mockapi.io/api/productosIntegrador'
 
-const getAll = async ()=>  await fetch(url).then(r => r.json())
-const guardar = async prod => await fetch(url, {
+const getAll =  ()=> fetch(url).then(r => r.json())
+const guardar =  prod =>  fetch(url, {
       method: 'POST',
       body: JSON.stringify(prod),
       headers: { 'content-type' : 'application/json'}
@@ -12,3 +17,12 @@ console.log (await getAll())
 }
 
 pedir() */
+
+/* ......................................... */
+/*          Exportacion                      */
+/* .......................................... */
+
+export default{
+    getAll,
+    guardar
+}

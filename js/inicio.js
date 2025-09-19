@@ -1,3 +1,10 @@
+
+/* ......................................... */
+/*          Importacion                      */
+/* .......................................... */
+import servicioProductos from "./servicioProductos.js"
+import productosMem from "./productosMem.js"
+
 // -------------------------------------
 //         variables globales
 // -------------------------------------
@@ -8,6 +15,8 @@
 // -------------------------------------
 function representarCardsProductos() {
     let cards = ''
+
+    const productos = productosMem.getAll()
     
     if(productos.length) {
         for(let i=0; i<productos.length; i++) {
@@ -36,7 +45,19 @@ function representarCardsProductos() {
 async function startInicio() {
     console.warn('startInicio')
 
-   productos = await getAll()
+    // obtengo los productos del recurso remoto
+   const productos = await servicioProductos.getAll()
    console.log(productos)
+   // Guardo los productos obtenidos en un recurso local
+   productosMem.setAll(productos)
+
     representarCardsProductos()
+}
+
+/* ......................................... */
+/*          Exportacion                      */
+/* .......................................... */
+
+export default {
+    startInicio
 }
