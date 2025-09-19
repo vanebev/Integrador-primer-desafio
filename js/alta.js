@@ -6,7 +6,7 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function agregar(e) {
+ async function agregar(e) {
     e.preventDefault()
 
     console.log('Agregar()')
@@ -53,6 +53,11 @@ function agregar(e) {
     }
 
     console.log(producto)
+    
+    //guardamos el producto en el recurso remoto
+    const productoGuardado = await guardar(producto)
+    console.log (productoGuardado)
+    //guardamos el producto en el recurso local
     productos.push(producto)
 
     representarTablaProductos()
@@ -120,8 +125,11 @@ function representarTablaProductos() {
 }
 
 
-function startAlta() {
+async function startAlta() {
     console.warn('startAlta')
+
+    productos = await getAll()
+    console.log (productos)
 
     representarTablaProductos()
 }

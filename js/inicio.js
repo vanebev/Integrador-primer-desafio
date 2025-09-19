@@ -33,8 +33,10 @@ function representarCardsProductos() {
 
 
 
-function startInicio() {
+async function startInicio() {
     console.warn('startInicio')
 
+   productos = await getAll()
+   console.log(productos)
     representarCardsProductos()
 }

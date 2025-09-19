@@ -1,5 +1,5 @@
 let productos = [
-  {
+/*   {
     nombre: "Zapatillas Urbanas",
     precio: 19999,
     stock: 10,
@@ -68,5 +68,5 @@ let productos = [
     edadHasta: "70",
     foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5frT5kH779001DW3stUNKQLpPffgpWPQoNg&s",
     envio: false
-  }
+  } */
 ]
