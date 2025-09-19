@@ -2,14 +2,19 @@
 
 
 
-body{
-  background-color:#689 ;
+.inicio {
+ 
   font-family: 'Source Sans 3', sans-serif; 
   line-height: 1.65; 
   color: #f7f7f7; 
+  height: auto;
+  background-color:#689;
+  text-align: center;
+  padding: 25px;
 }
 
-.inicio h1, h2, h3 {
+.inicio .section-cards-body {
+  color:#1a1a1a;
   font-family: 'Fraunces', serif;
   font-weight: 700;
   line-height: 1.15;
@@ -18,16 +23,11 @@ body{
   letter-spacing: 2px;
   font-size: clamp(2.5rem, 2.5vw, 2.2rem); 
 }
-.inicio h2, h3 {
+.inicio .section-cards-body {
    letter-spacing: 1px;
    font-size: clamp(1.3rem, 2vw, 1.6rem); 
 }
-.inicio {
-    height: auto;
-    background-color:#689;
-    text-align: center;
-    padding: 25px;
-}
+
 
 .inicio section img {
   width: 100px;

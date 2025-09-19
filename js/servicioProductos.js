@@ -1,0 +1,1 @@
+const url = 'https://68c49c4981ff90c8e61ca717.mockapi.io/api/productosIntegrador'
