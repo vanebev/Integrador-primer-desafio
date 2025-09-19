@@ -10,7 +10,7 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function startNosotros() {
+function start() {
     console.warn('StartNosotros')
 }
 
@@ -19,5 +19,5 @@ function startNosotros() {
 /* .......................................... */
 
 export default {
-    startNosotros
+    start
 }

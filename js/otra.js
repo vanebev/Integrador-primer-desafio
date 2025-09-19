@@ -11,7 +11,7 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function startOtra() {
+function start() {
     console.warn('startOtra')
 }
 
@@ -20,5 +20,5 @@ function startOtra() {
 /* .......................................... */
 
 export default {
-    startOtra
+    start
 }

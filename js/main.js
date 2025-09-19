@@ -27,12 +27,12 @@ function cargarPlantilla(id){
     
     //const startFn = [startInicio, startAlta, startCarrito, startContacto, startNosotros, startOtra]
     const startFn = {
-        'inicio'  : inicio.startInicio, 
-        'alta'    : alta.startAlta, 
-        'carrito' : carrito.startCarrito, 
-        'contacto': contacto.startContacto, 
-        'nosotros': nosotros.startNosotros, 
-        'otra'    : otra.startOtra
+        'inicio'  : inicio.start, 
+        'alta'    : alta.start, 
+        'carrito' : carrito.start, 
+        'contacto': contacto.start, 
+        'nosotros': nosotros.start, 
+        'otra'    : otra.start
     }
 
     const xhr = new XMLHttpRequest()

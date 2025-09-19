@@ -10,7 +10,7 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function startContacto() {
+function start() {
     console.warn('startContacto')
 }
 
@@ -19,5 +19,5 @@ function startContacto() {
 /* .......................................... */
 
 export default {
-    startContacto
+    start
 }

@@ -10,7 +10,7 @@
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function startCarrito() {
+function start() {
     console.warn('startCarrito')
 }
 
@@ -19,5 +19,5 @@ function startCarrito() {
 /* .......................................... */
 
 export default {
-    startCarrito
+    start
 }

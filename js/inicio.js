@@ -13,7 +13,7 @@ import productosMem from "./productosMem.js"
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
-function representarCardsProductos() {
+function render() {
     let cards = ''
 
     const productos = productosMem.getAll()
@@ -42,7 +42,7 @@ function representarCardsProductos() {
 
 
 
-async function startInicio() {
+async function start() {
     console.warn('startInicio')
 
     // obtengo los productos del recurso remoto
@@ -51,7 +51,7 @@ async function startInicio() {
    // Guardo los productos obtenidos en un recurso local
    productosMem.setAll(productos)
 
-    representarCardsProductos()
+   render()
 }
 
 /* ......................................... */
@@ -59,5 +59,5 @@ async function startInicio() {
 /* .......................................... */
 
 export default {
-    startInicio
+    start
 }

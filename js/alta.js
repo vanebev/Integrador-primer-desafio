@@ -15,47 +15,36 @@ import productosMem from "./productosMem.js"
  async function agregar(e) {
     e.preventDefault()
 
-    console.log('Agregar()')
+   // console.log('Agregar()', this)
+   // console.dir(this)
 
-    const refNombre = document.querySelector('#nombre')
-    const refPrecio = document.querySelector('#precio')
-    const refStock = document.querySelector('#stock')
-    const refMarca = document.querySelector('#marca')
-    const refCategoria = document.querySelector('#categoria')
-    const refDetalles = document.querySelector('#detalles')
-    const refDescripcionLarga = document.querySelector('#descripcionCorta')
-    const refDescripcionCorta = document.querySelector('#descripcionLarga')
-    const refEdadDesde = document.querySelector('#edadDesde')
-    const refEdadHasta = document.querySelector('#edadHasta')
-    const refFoto = document.querySelector('#foto')
-    const refEnvio = document.querySelector('#envio')
 
-    const nombre = refNombre.value
-    const precio = refPrecio.value
-    const stock = refStock.value
-    const marca = refMarca.value
-    const categoria = refCategoria.value
-    const detalles = refDetalles.value
-    const descripcionCorta= refDescripcionCorta.value
-    const descripcionLarga = refDescripcionLarga.value
-    const edadDesde = refEdadDesde.value
-    const edadHasta = refEdadHasta.value
-    const foto = refFoto.value
-    const envio = refEnvio.checked
+    const nombre = this[0].value
+    const precio = this[1].value
+    const stock = this[2].value
+    const marca = this[3].value
+    const categoria = this[4].value
+    const detalles = this[5].value
+    const descripcionCorta= this[6].value
+    const descripcionLarga = this[7].value
+    const edadDesde = this[8].value
+    const edadHasta = this[9].value
+    const foto = this[10].value
+    const envio = this[11].checked
 
     const producto = {
-        nombre: nombre,
+        nombre,
         precio: +precio,
         stock: parseInt(stock),
-        marca: marca,
-        categoria: categoria,
-        detalles: detalles,
-        descripcionCorta: descripcionCorta,
-        descripcionLarga: descripcionLarga,
-        edadDesde: edadDesde,
-        edadHasta: edadHasta,
-        foto: foto,
-        envio: envio,
+        marca,
+        categoria,
+        detalles,
+        descripcionCorta,
+        descripcionLarga,
+        edadDesde,
+        edadHasta,
+        foto,
+        envio,
     }
 
     console.log(producto)
@@ -63,27 +52,17 @@ import productosMem from "./productosMem.js"
     //guardamos el producto en el recurso remoto
     const productoGuardado = await servicioProductos.guardar(producto)
     console.log (productoGuardado)
+    
     //guardamos el producto en el recurso local
     productosMem.guardar(producto)
 
-    representarTablaProductos()
+    render()
 
     // borro los campos de entrada del formulario
-    refNombre.value = ''
-    refPrecio.value = ''
-    refStock.value = ''
-    refMarca.value = ''
-    refCategoria.value = ''
-    refDetalles.value = ''
-    refDescripcionCorta.value = ''
-    refDescripcionLarga.value = ''
-    refEdadDesde.value = ''
-    refEdadHasta.value = ''
-    refFoto.value = ''
-    refEnvio.checked = false
+    this.reset()
 }
 
-function representarTablaProductos() {
+function render() {
     let filasTabla = ''
 
     const productos = productosMem.getAll()
@@ -137,7 +116,7 @@ function setListeners(){
 }
 
 
-async function startAlta() {
+async function start() {
     console.warn('startAlta')
 
      // obtengo los productos del recurso remoto
@@ -146,7 +125,7 @@ async function startAlta() {
        // Guardo los productos obtenidos en un recurso local
        productosMem.setAll(productos)
 
-    representarTablaProductos()
+   render()
     setListeners()
 }
 
@@ -155,5 +134,5 @@ async function startAlta() {
 /* .......................................... */
 
 export default {
-    startAlta
+    start
 }
