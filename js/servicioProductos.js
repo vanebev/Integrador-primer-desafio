@@ -19,7 +19,7 @@ const actualizar =  (id,prod) =>  fetch(url,id, {
       headers: { 'content-type' : 'application/json'}
 }).then(r => r.json())
 
-const eliminar =  id =>  fetch(url,id, {
+const eliminar =  id =>  fetch(url+id, {
       method: 'DELETE',
 }).then(r => r.json())
 

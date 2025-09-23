@@ -70,6 +70,7 @@ function render() {
     if(productos.length) {
         filasTabla += `
             <tr>
+                <th>#</th>
                 <th>nombre</th>
                 <th>precio</th>
                 <th>stock</th>
@@ -82,12 +83,14 @@ function render() {
                 <th>edad desde</th>
                 <th>foto</th>
                 <th>envío</th>
+                <th>Acciones</th>
             </tr>        
         `
 
         for(let producto of productos) {
             filasTabla += `
                 <tr>
+                    <td class="centrar">${producto.id}</td>
                     <td>${producto.nombre}</td>
                     <td class="centrar">$${producto.precio}</td>
                     <td class="centrar">${producto.stock}</td>
@@ -100,6 +103,10 @@ function render() {
                     <td>${producto.edadHasta}</td>
                     <td class="centrar"><img width="75" src="${producto.foto}" alt="foto de ${producto.nombre}"></td>
                     <td class="centrar">${producto.envio? 'Si':'No'}</td>
+                    <td >
+                      <button class="borrar-editar" id="btnBorrar-${producto.id}">Borrar</button>
+                      <button class="borrar-editar" id="btnEditar-${producto.id}">Editar</button>
+                    </td>
                 </tr>        
             `
         }
@@ -113,6 +120,41 @@ function render() {
 
 function setListeners(){
     document.querySelector('.alta .alta-form').addEventListener('submit',agregar)
+    
+
+    //seteo de los eventos en los botones de borrar
+      const botonesBorrar = document.querySelectorAll('.alta table button[id^="btnBorrar-"]')
+    //console.log(botonesBorrar)
+
+    botonesBorrar.forEach(boton=> {
+        boton.addEventListener('click',async ()=>{
+            const id = boton.id.split('-')[1]
+            console.log('btnBorrar id',id)
+            //borramos el producto en el recurso remoto
+            
+            if(confirm(`¿Esta seguro de borrar el producto de id ${id} ?`)){
+
+            
+                const productoEliminado = await servicioProductos.eliminar(id)
+                //borramos el producto en el recurso remoto
+                productosMem.eliminar(productoEliminado.id)
+                
+                render()
+                
+            }
+        })
+    })
+
+    //seteo de los eventos en los botones de editar
+      const botonesEditar = document.querySelectorAll('.alta table button[id^="btnEditar-"]')
+    //console.log(botonesBorrar)
+
+    botonesEditar.forEach(boton=> {
+        boton.addEventListener('click',()=>{
+            const id = boton.id.split('-')[1]
+            console.log('btnEditar id',id)
+        })
+    })
 }
 
 

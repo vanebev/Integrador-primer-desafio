@@ -44,7 +44,7 @@
     margin: 10px 0;
 }
 
-.alta button {
+.alta form button {
  
     display: block;
     margin: 15px auto;
@@ -57,7 +57,7 @@
     border-radius: 5px;
 }
 
-.alta input {
+.alta form input {
     width: 70%;
     height: 30px;
     font-size: 20px;
@@ -65,7 +65,7 @@
     background-color:#95afc0;
 }
 
-.alta input[type="checkbox"] {
+.alta form input[type="checkbox"] {
     width: 20px;
     height: 20px;
 }
@@ -118,8 +118,26 @@
 }
 
 
+/* ..................................... */
+
+.alta table .borrar-editar{
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.alta table button[id^="btnBorrar-"]  {
+   background-color: #b63625;
+   color: aliceblue;
+}
 
 
+.alta table button[id^="btnEditar-"]{
+    background-color: gold;
+    color: black;
+}
 
 
 
