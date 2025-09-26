@@ -139,6 +139,21 @@
     color: black;
 }
 
+.alta table button[id^="btnCancelar-"]{
+    background-color: black;
+    color: gold;
+}
+
+.alta .btnActualizar{
+    background-color:gold;
+    color: #222;
+
+}
+
+.alta .btnAgregar{
+    background-color:#6ab04c;
+    color: #130f40;
+}
 
 
 

@@ -8,11 +8,52 @@ import productosMem from "./productosMem.js"
 //         variables globales
 // -------------------------------------
 
-
+let editarID = null
 // -------------------------------------
 //         funciones globales
 // -------------------------------------
- async function agregar(e) {
+ function ponerBotonActualizar(){
+    const ref = document.querySelector('.alta form button')
+    
+    ref.classList.add('btnActualizar')
+    ref.classList.remove('btnAgregar')
+    ref.innerText = 'Actualizar'
+ }
+ function ponerBotonAgregar(){
+    const ref = document.querySelector('.alta form button')
+    
+    ref.classList.add('btnAgregar')
+    ref.classList.remove('btnActualizar')
+    
+    ref.innerText = 'Agregar'
+    
+ }
+
+function copiarProductoEnFormulario(producto){
+   //console.log(producto)
+
+    for(let campo in producto){
+        //console.log(campo)
+        const input = document.getElementById( campo)
+   
+        //console.log(campo, input, producto[campo])
+    
+        if(input){
+        /* if (input.id == 'envio') input.checked = producto[campo]
+        else input.value = producto[campo] */
+
+        //input.id == 'envio'? input.checked = producto[campo] :input.value = producto[campo]
+       
+        input[input.id == 'envio'? 'checked' : 'value'] = producto[campo]
+    }
+   }
+}
+
+function borrarFormulario(){
+    document.querySelector('.alta .alta-form').reset()
+}
+
+async function agregar(e) {
     e.preventDefault()
 
    // console.log('Agregar()', this)
@@ -48,13 +89,28 @@ import productosMem from "./productosMem.js"
     }
 
     console.log(producto)
+
+    if(editarID){
+      //actualizamos el producto en el recurso remoto
+    const productoActualizado = await servicioProductos.actualizar(editarID, producto)
+    console.log (productoActualizado)
+
+    //actualizamos el producto en el recurso local
+    productosMem.actualizar(productoActualizado.id, productoActualizado)
+   
+    editarID = null
+    ponerBotonAgregar()
+
+  }
     
-    //guardamos el producto en el recurso remoto
+    else{
+     //guardamos el producto en el recurso remoto
     const productoGuardado = await servicioProductos.guardar(producto)
     console.log (productoGuardado)
     
     //guardamos el producto en el recurso local
     productosMem.guardar(producto)
+    }
 
     render()
 
@@ -105,8 +161,11 @@ function render() {
                     <td class="centrar">${producto.envio? 'Si':'No'}</td>
                     <td >
                       <button class="borrar-editar" id="btnBorrar-${producto.id}">Borrar</button>
-                      <button class="borrar-editar" id="btnEditar-${producto.id}">Editar</button>
-                    </td>
+                      ${editarID && (editarID == producto.id)
+                        ?`<button class="borrar-editar" id="btnCancelar-${producto.id}">Cancelar</button>`
+                        :`<button class="borrar-editar" id="btnEditar-${producto.id}">Editar</button>`
+                      }
+                      </td>
                 </tr>        
             `
         }
@@ -116,10 +175,11 @@ function render() {
     }
 
     document.querySelector('table').innerHTML = filasTabla
+    setListeners()
 }
 
 function setListeners(){
-    document.querySelector('.alta .alta-form').addEventListener('submit',agregar)
+    
     
 
     //seteo de los eventos en los botones de borrar
@@ -153,6 +213,37 @@ function setListeners(){
         boton.addEventListener('click',()=>{
             const id = boton.id.split('-')[1]
             console.log('btnEditar id',id)
+            editarID = id 
+            render()
+
+            const producto = productosMem.get(id)
+            console.log(producto)
+            copiarProductoEnFormulario(producto)
+             
+
+            ponerBotonActualizar()
+            
+           
+
+        })
+    })
+
+    //seteo de los eventos en los botones de Cancelar edicion
+      const botonesCancelar = document.querySelectorAll('.alta table button[id^="btnCancelar-"]')
+    //console.log(botonescancelar)
+
+    botonesCancelar.forEach(boton=> {
+        boton.addEventListener('click',()=>{
+            const id = boton.id.split('-')[1]
+            console.log('btnCancelar id',id)
+            editarID = null
+            render()
+
+            borrarFormulario()
+            ponerBotonAgregar()
+            
+            
+
         })
     })
 }
@@ -161,6 +252,8 @@ function setListeners(){
 async function start() {
     console.warn('startAlta')
 
+    document.querySelector('.alta .alta-form').addEventListener('submit',agregar)
+
      // obtengo los productos del recurso remoto
        const productos = await servicioProductos.getAll()
        console.log(productos)
@@ -168,7 +261,7 @@ async function start() {
        productosMem.setAll(productos)
 
    render()
-    setListeners()
+    
 }
 
 /* ......................................... */

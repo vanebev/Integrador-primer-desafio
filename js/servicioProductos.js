@@ -13,7 +13,7 @@ const guardar =  prod =>  fetch(url, {
       headers: { 'content-type' : 'application/json'}
 }).then(r => r.json())
 
-const actualizar =  (id,prod) =>  fetch(url,id, {
+const actualizar =  (id, prod) =>  fetch(url+id, {
       method: 'PUT',
       body: JSON.stringify(prod),
       headers: { 'content-type' : 'application/json'}
