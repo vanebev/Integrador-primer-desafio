@@ -1,3 +1,82 @@
 .carrito {
     padding: 20px;
+    min-height: 600px;
 }
+
+.carrito h1, .carrito h2{
+    text-align: center;
+}
+
+.carrito .carrito-borrar-pedir{
+    margin: 15px auto;
+    display: block;
+
+    width: 100px;
+    min-height: 40px;
+
+    border-radius: 6px;
+
+    font-size: 18px;
+
+}
+
+.carrito #carrito-borrar{
+    background-color:crimson ;
+    color: white;
+}
+
+.carrito #carrito-pedir{
+    background-color:green ;
+    color: white;
+}
+
+.carrito th, .carrito td {
+    border: 1px solid black;
+    width: 150px;
+    height: 30px;
+    padding: 20px;
+}
+
+.carrito table {
+    border-collapse: collapse;
+    margin: 5px auto;
+    grid-column:2;
+    grid-row:2;            
+    height:100%;          
+    display:block;        
+    overflow:auto;
+   
+}
+
+.carrito th {
+    text-transform: uppercase;
+    background-color: #111;
+    color: white;
+    font-size: 20px;
+    border: 1px solid black;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+}
+
+.carrito td {
+    font-size: 18px;
+}
+
+.carrito h2 {
+    text-align: center;
+    grid-column:2;
+    grid-row:1;
+    align-self:end;
+}
+
+.carrito table button[id^="btnBorrar-"]{
+    width: 90%;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: orangered;
+    color: white;
+}
+
+

@@ -4,7 +4,7 @@
 /* .......................................... */
 import servicioProductos from "./servicioProductos.js"
 import productosMem from "./productosMem.js"
-
+import carrito from "./carrito.js"
 // -------------------------------------
 //         variables globales
 // -------------------------------------
@@ -31,6 +31,7 @@ function render() {
                         <p><b>Detalles:</b> ${producto.detalles}</p>
                         <br>
                         <p><b style="color:gold;">Envío:</b> ${producto.envio? 'Si':'No'}</p>
+                        <button  id="btnComprar-${producto.id}">Agregar producto al carrito</button>
                         <a href="#" class="boton-comprar">Comprar</a>
                       </section>`
         }
@@ -38,8 +39,27 @@ function render() {
     else cards += '<h2>No se encontraron productos para mostrar</h2>'
 
     document.querySelector('.section-cards-body').innerHTML = cards
+    setListeners()
 }
 
+function setListeners(){
+    //seteo de los eventos en los botones de comprar
+      const botonesComprar = document.querySelectorAll('.inicio section button[id^="btnComprar-"]')
+    console.log(botonesComprar)
+
+    botonesComprar.forEach(boton=> {
+        boton.addEventListener('click',async ()=>{
+            const id = boton.id.split('-')[1]
+            console.log('btnComprar id',id)
+            
+            const producto= productosMem.get(id)
+            //console.log(producto)
+            carrito.agregar(producto)
+
+
+        })
+    })
+}
 
 
 async function start() {

@@ -160,7 +160,7 @@ function render() {
                     <td class="centrar"><img width="75" src="${producto.foto}" alt="foto de ${producto.nombre}"></td>
                     <td class="centrar">${producto.envio? 'Si':'No'}</td>
                     <td >
-                      <button class="borrar-editar" id="btnBorrar-${producto.id}">Borrar</button>
+                      <button ${editarID? 'disabled' : ''} class="borrar-editar" id="btnBorrar-${producto.id}">Borrar</button>
                       ${editarID && (editarID == producto.id)
                         ?`<button class="borrar-editar" id="btnCancelar-${producto.id}">Cancelar</button>`
                         :`<button class="borrar-editar" id="btnEditar-${producto.id}">Editar</button>`
@@ -178,29 +178,25 @@ function render() {
     setListeners()
 }
 
-function setListeners(){
-    
-    
 
-    //seteo de los eventos en los botones de borrar
-      const botonesBorrar = document.querySelectorAll('.alta table button[id^="btnBorrar-"]')
+   function setListeners(){
+    
+    // seteo de los eventos en los botones de borrar
+    const botonesBorrar = document.querySelectorAll('.alta table button[id^="btnBorrar-"]')
     //console.log(botonesBorrar)
 
-    botonesBorrar.forEach(boton=> {
-        boton.addEventListener('click',async ()=>{
+    botonesBorrar.forEach(boton=>{
+        boton.addEventListener('click', async()=>{
             const id = boton.id.split('-')[1]
-            console.log('btnBorrar id',id)
-            //borramos el producto en el recurso remoto
-            
-            if(confirm(`¿Esta seguro de borrar el producto de id ${id} ?`)){
-
-            
-                const productoEliminado = await servicioProductos.eliminar(id)
+            console.log('btnBorrar id', id)
+           if(confirm(`¿Esta seguro de borar el producto de id ${id} ?`)){
                 //borramos el producto en el recurso remoto
+                 const productoEliminado = await servicioProductos.eliminar(id)
+            
+                 //borramos el producto en el recurso remoto
                 productosMem.eliminar(productoEliminado.id)
-                
+            
                 render()
-                
             }
         })
     })

@@ -140,3 +140,13 @@ section h3 {
 .inicio .boton-comprar:hover {
   background-color: #218838;
 }
+
+.inicio section button[id^="btnComprar-"]  {
+   background-color: #6ab04c;
+   color: #120f40;
+   margin: 30px auto 5px;
+   width: 150px;
+   height: 50px;
+   font-size: 15px;
+   border-radius: 8px;
+}

@@ -78,11 +78,6 @@
     padding: 10px;
 }
 
-.alta table {
-    border-collapse: collapse;
-    margin: 5px auto;
-  
-}
 
 .alta th {
     text-transform: uppercase;
@@ -132,6 +127,11 @@
    background-color: #b63625;
    color: aliceblue;
 }
+
+.alta table button[id^="btnBorrar-"]:disabled  {
+   opacity: 0.5;
+}
+
 
 
 .alta table button[id^="btnEditar-"]{
